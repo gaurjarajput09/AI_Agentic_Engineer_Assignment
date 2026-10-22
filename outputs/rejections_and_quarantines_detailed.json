@@ -1,0 +1,115 @@
+{
+  "period": "2024-Q4",
+  "functional_currency": "USD",
+  "timestamp": "2026-10-22T16:13:35.347880+00:00",
+  "quarantined_count": 1,
+  "rejected_count": 2,
+  "quarantined_entries": [
+    {
+      "entry_id": "JE-008",
+      "description": "Intercompany settlement \u2014 UK sub",
+      "date": "2024-12-30",
+      "source": "IC reconciliation",
+      "total_debit": "320000.0",
+      "total_credit": "320000.0",
+      "difference": "0.0",
+      "status": "QUARANTINED",
+      "issues": [
+        {
+          "code": "CIRCULAR_WASH_TRANSACTION",
+          "message": "Account '2170' is both debited and credited with equal amount 320000.0. Self-cancelling circular wash entry.",
+          "severity": "WARNING",
+          "details": {
+            "account": "2170",
+            "amount": 320000.0,
+            "is_intercompany": true
+          }
+        }
+      ],
+      "agent_explanation": {
+        "entry_id": "JE-008",
+        "plain_english_summary": "Circular wash detected: Account '2170' (Intercompany Payable) is simultaneously debited and credited for $320,000.00.",
+        "accounting_impact": "While mathematically net-zero, this circular transaction obscures actual cross-entity settlement flows, artificially inflates gross turnover, and indicates an improper single-sided intercompany adjustment.",
+        "recommended_action": "Quarantine for Controller review. Proper intercompany settlement requires an offsetting cash transfer (Account 1110) or cross-entity receivable matching, rather than a self-clearing wash on the liability account.",
+        "suggested_correction": {
+          "action": "REQUIRE_COUNTERPARTY_OR_CASH_LEG",
+          "account": "2170",
+          "suggested_counterpart": "1110 Cash or Intercompany Receivable"
+        },
+        "confidence_score": 0.98
+      },
+      "audit_trace_id": "AUDIT-38F5C4E806CE"
+    }
+  ],
+  "rejected_entries": [
+    {
+      "entry_id": "JE-002",
+      "description": "Reclassify marketing spend wrongly booked to T&E",
+      "date": "2024-12-28",
+      "source": "Controller note 2024-12-28",
+      "total_debit": "28500.0",
+      "total_credit": "25000.0",
+      "difference": "3500.0",
+      "status": "REJECTED",
+      "issues": [
+        {
+          "code": "UNBALANCED_ENTRY",
+          "message": "Debit total (28500.0) does not equal credit total (25000.0). Imbalance: 3500.0",
+          "severity": "CRITICAL",
+          "details": {
+            "total_debit": 28500.0,
+            "total_credit": 25000.0,
+            "imbalance": 3500.0
+          }
+        }
+      ],
+      "agent_explanation": {
+        "entry_id": "JE-002",
+        "plain_english_summary": "Entry is mathematically unbalanced: total debits ($28,500.00) exceed total credits ($25,000.00) by $3,500.00.",
+        "accounting_impact": "Posting this entry would breach the fundamental accounting equation (Assets = Liabilities + Equity) and corrupt the general ledger balance by $3,500.00, resulting in an out-of-balance trial balance.",
+        "recommended_action": "Reject entry. Return to submitter (Controller note 2024-12-28) to provide an offsetting credit line of $3,500.00 or adjust debit/credit line amounts.",
+        "suggested_correction": {
+          "action": "ADD_OR_ADJUST_LINE",
+          "recommended_offset": 3500.0,
+          "target_account": "6310"
+        },
+        "confidence_score": 0.98
+      },
+      "audit_trace_id": "AUDIT-D89C379328BE"
+    },
+    {
+      "entry_id": "JE-005",
+      "description": "Reclass conference travel from old code",
+      "date": "2024-12-15",
+      "source": "AP team",
+      "total_debit": "18500.0",
+      "total_credit": "18500.0",
+      "difference": "0.0",
+      "status": "REJECTED",
+      "issues": [
+        {
+          "code": "ORPHAN_ACCOUNT_NOT_IN_COA",
+          "message": "Account '6315' on line 1 does not exist in Chart of Accounts.",
+          "severity": "CRITICAL",
+          "details": {
+            "line": 1,
+            "account": "6315"
+          }
+        }
+      ],
+      "agent_explanation": {
+        "entry_id": "JE-005",
+        "plain_english_summary": "Account '6315' referenced on line 1 does not exist in the active Chart of Accounts.",
+        "accounting_impact": "The financial reporting pipeline cannot map '6315' to any financial statement node (BS or P&L), causing statement generation to abort or drop transactions from financial rollups.",
+        "recommended_action": "Quarantine / Reject. Remap legacy account '6315' to active parent '6310' (Travel and Entertainment), or request GL team to formally add '6315' to chart_of_accounts.csv.",
+        "suggested_correction": {
+          "action": "REMAP_ACCOUNT",
+          "invalid_account": "6315",
+          "suggested_account": "6310"
+        },
+        "confidence_score": 0.98
+      },
+      "audit_trace_id": "AUDIT-48B450FB75F0"
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+source,currency,status,action_required
+current_trial_balance,GBP,MISSING_PERIOD_END_FX_RATE,Confirm the correct rate from the source data
+prior_period_trial_balance,GBP,MISSING_PERIOD_END_FX_RATE,Confirm the correct rate from the source data

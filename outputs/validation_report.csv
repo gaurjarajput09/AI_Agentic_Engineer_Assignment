@@ -1,0 +1,11 @@
+entry_id,date,description,source,debit_total,credit_total,difference,account_checks,status,reasons
+JE-001,2024-12-31,Accrue Q4 bonus pool,Finance team — bonus accrual workbook v3,850000.0,850000.0,0.0,6100: FOUND; 2120: FOUND,ACCEPT,
+JE-002,2024-12-28,Reclassify marketing spend wrongly booked to T&E,Controller note 2024-12-28,28500.0,25000.0,3500.0,6300: FOUND; 6310: FOUND,REJECT,Debit-credit difference: 3500.00
+JE-003,2024-12-31,FX revaluation of EUR cash balance to period-end rate,FX reval calc,11200.0,11200.0,0.0,1110: FOUND; 7310: FOUND,ACCEPT,
+JE-004,2024-12-31,Bad debt provision top-up,AR aging review,45000.0,45000.0,0.0,6600: FOUND; 1121: FOUND,ACCEPT,
+JE-005,2024-12-15,Reclass conference travel from old code,AP team,18500.0,18500.0,0.0,6315: UNKNOWN; 6310: FOUND,QUARANTINE,Unknown account: 6315
+JE-006,2024-12-31,Depreciation catch-up — Q4,Fixed asset register,215000.0,215000.0,0.0,6500: FOUND; 1211: FOUND,ACCEPT,
+JE-007,2024-12-31,Deferred tax true-up,Tax provision memo,38000.0,38000.0,0.0,8200: FOUND; 1250: FOUND,ACCEPT,
+JE-008,2024-12-30,Intercompany settlement — UK sub,IC reconciliation,320000.0,320000.0,0.0,2170: FOUND; 2170: FOUND,QUARANTINE,Intercompany transaction requires review
+JE-009,2024-12-31,Accrue legal fees for ongoing litigation,Legal memo dated 2024-12-29,75000.0,75000.0,0.0,6400: FOUND; 2120: FOUND,ACCEPT,
+JE-010,2024-12-31,Reclass long-term debt current portion,Treasury schedule,200000.0,200000.0,0.0,2210: FOUND; 2140: FOUND,ACCEPT,
