@@ -2,7 +2,7 @@
 
 > **Target Platform:** ERP-driven Financial Statement Engine (SAP, NetSuite)  
 > **Core Deliverable:** Architecture Specification for Multi-Agent Financial Reporting & Audit-Grade Ingestion  
-> **Author:** Candidate (AI Agentic Engineer Evaluation)  
+> **Author:** Gaurav Rajput  
 > **Date:** October 2026  
 
 ---

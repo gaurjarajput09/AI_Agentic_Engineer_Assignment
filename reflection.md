@@ -1,7 +1,7 @@
 # Engineering Reflection: AI-Native Financial Reporting Engine
 
 > **Document Type:** One-Page Engineering Reflection  
-> **Author:** Candidate (AI Agentic Engineer Assignment)  
+> **Author:** Gaurav Rajput  
 > **Date:** October 2026  
 
 ---
